@@ -39,8 +39,8 @@ export const metadata: Metadata = {
         canonical: BASE_URL,
     },
     authors: {
-        name: "Ali Abbasov",
-        url: "https://aliabb.vercel.app",
+        name: "Elite8Digital",
+        url: "https://elite8digital.com",
     },
     verification: {
         google: GOOGLE_SC_VERIFICATION,

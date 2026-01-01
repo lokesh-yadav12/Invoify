@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Assets
-import Logo from "@/public/assets/img/invoify-logo.svg";
+import Logo from "@/public/assets/img/elite8digital.png";
 
 // ShadCn
 import { Card } from "@/components/ui/card";
@@ -19,23 +19,25 @@ const BaseNavbar = () => {
     }, []);
 
     return (
-        <header className="lg:container z-[99]">
+        <header className="w-full px-4 lg:px-0 lg:container z-[99] py-4">
             <nav>
-                <Card className="flex flex-wrap justify-between items-center px-5 gap-5">
+                <Card className="flex flex-wrap justify-between items-center px-3 sm:px-5 py-3 gap-3 sm:gap-5">
                     <Link href={"/"}>
                         <Image
                             src={Logo}
-                            alt="Invoify Logo"
+                            alt="Elite8Digital Logo"
                             width={190}
                             height={100}
                             loading="eager"
-                            style={{ height: "auto" }}
+                            className="w-[140px] sm:w-[190px] h-auto"
                         />
                     </Link>
                     {/* ? DEV Only */}
                     {devEnv && <DevDebug />}
-                    <LanguageSelector />
-                    <ThemeSwitcher />
+                    <div className="flex items-center gap-3 sm:gap-5">
+                        <LanguageSelector />
+                        <ThemeSwitcher />
+                    </div>
                 </Card>
             </nav>
         </header>

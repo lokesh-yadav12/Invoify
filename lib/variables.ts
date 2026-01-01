@@ -138,7 +138,7 @@ export const FORM_DEFAULT_VALUES = {
     customInputs: [],
   },
   details: {
-    invoiceLogo: "",
+    invoiceLogo: "/assets/img/elite8digital.png",
     invoiceNumber: "",
     invoiceDate: "",
     dueDate: "",

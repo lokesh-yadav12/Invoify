@@ -47,16 +47,17 @@ const ChargeInput = ({
 
     return (
         <>
-            <div className="flex justify-between items-center">
-                <div>{label}</div>
+            <div className="flex flex-wrap justify-between items-center gap-2">
+                <div className="text-sm sm:text-base">{label}</div>
 
                 <div className="flex items-center gap-1">
                     <BaseButton
                         variant="ghost"
                         size="icon"
                         onClick={() => switchAmountType(type, setType)}
+                        className="h-8 w-8 sm:h-10 sm:w-10"
                     >
-                        <RefreshCw />
+                        <RefreshCw className="h-4 w-4" />
                     </BaseButton>
 
                     <FormField
@@ -68,7 +69,7 @@ const ChargeInput = ({
                                     <FormControl>
                                         <Input
                                             {...field}
-                                            className="w-[7rem]"
+                                            className="w-[5rem] sm:w-[7rem]"
                                             placeholder={label}
                                             type="number"
                                             min="0"
@@ -81,7 +82,7 @@ const ChargeInput = ({
                             </FormItem>
                         )}
                     />
-                    {type == "percentage" ? <Percent /> : <div>{currency}</div>}
+                    {type == "percentage" ? <Percent className="h-4 w-4" /> : <div className="text-sm">{currency}</div>}
                 </div>
             </div>
         </>

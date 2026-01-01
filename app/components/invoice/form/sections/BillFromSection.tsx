@@ -40,7 +40,7 @@ const BillFromSection = () => {
     };
 
     return (
-        <section className="flex flex-col gap-3">
+        <section className="flex flex-col gap-3 w-full lg:w-1/2">
             <Subheading>{_t("form.steps.fromAndTo.billFrom")}:</Subheading>
             <FormInput
                 name="sender.name"

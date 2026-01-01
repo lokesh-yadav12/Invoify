@@ -60,7 +60,16 @@ const Providers = ({ children }: ProvidersProps) => {
   useEffect(() => {
     const draft = readDraftFromLocalStorage();
     if (draft) {
+      // Force update any old Invoify logo references to Elite8Digital logo
+      if (!draft.details.invoiceLogo || 
+          draft.details.invoiceLogo === "" ||
+          draft.details.invoiceLogo.includes("invoify-logo")) {
+        draft.details.invoiceLogo = "/assets/img/elite8digital.png";
+      }
       form.reset(draft, { keepDefaultValues: false });
+    } else {
+      // Ensure default logo is set for new forms
+      form.setValue("details.invoiceLogo", "/assets/img/elite8digital.png");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

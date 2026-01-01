@@ -16,9 +16,9 @@ const InvoiceSummary = () => {
     const { _t } = useTranslationContext();
 
     return (
-        <section>
+        <section className="w-full">
             <Subheading>{_t("form.steps.summary.heading")}:</Subheading>
-            <div className="flex flex-wrap gap-x-5 gap-y-10">
+            <div className="flex flex-col lg:flex-row flex-wrap gap-x-5 gap-y-10">
                 <div className="flex flex-col gap-3">
                     <SignatureContextProvider>
                         {/* Signature dialog */}

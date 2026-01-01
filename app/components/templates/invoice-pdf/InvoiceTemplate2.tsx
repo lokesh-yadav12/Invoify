@@ -14,24 +14,32 @@ import { InvoiceType } from "@/types";
 
 const InvoiceTemplate2 = (data: InvoiceType) => {
     const { sender, receiver, details } = data;
+
+    // Force Elite8Digital logo if old Invoify logo is present
+    const logoSrc = (!details.invoiceLogo || 
+        details.invoiceLogo === "" || 
+        details.invoiceLogo.includes("invoify-logo")) 
+        ? "/assets/img/elite8digital.png" 
+        : details.invoiceLogo;
+
     return (
         <InvoiceLayout data={data}>
             <div className="flex justify-between">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
-                        Invoice #
+                        Invoice 
                     </h2>
                     <span className="mt-1 block text-gray-500">
                         {details.invoiceNumber}
                     </span>
-                    {details.invoiceLogo && (
-                        <img
-                            src={details.invoiceLogo}
-                            width={140}
-                            height={100}
-                            alt={`Logo of ${sender.name}`}
-                        />
-                    )}
+                    {/* Logo - Always show Elite8Digital logo */}
+                    <img
+                        src={logoSrc}
+                        width={80}
+                        height={60}
+                        alt={`Logo of ${sender.name || "Elite8Digital"}`}
+                        style={{ maxWidth: "80px", maxHeight: "60px", objectFit: "contain" }}
+                    />
 
                     <h1 className="mt-2 text-lg md:text-xl font-semibold text-blue-600">
                         {sender.name}
@@ -92,18 +100,18 @@ const InvoiceTemplate2 = (data: InvoiceType) => {
             </div>
 
             <div className="mt-3">
-                <div className="border border-gray-200 p-1 rounded-lg space-y-1">
-                    <div className="hidden sm:grid sm:grid-cols-5">
-                        <div className="sm:col-span-2 text-xs font-medium text-gray-500 uppercase">
+                <div className="border border-gray-200 p-1 rounded-lg space-y-1 ">
+                    <div className="hidden sm:grid sm:grid-cols-5 bg-blue-500 py-2 px-2">
+                        <div className="sm:col-span-2 text-xs font-medium text-gray-900 uppercase">
                             Item
                         </div>
-                        <div className="text-left text-xs font-medium text-gray-500 uppercase">
+                        <div className="text-left text-xs font-medium text-gray-900 uppercase">
                             Qty
                         </div>
-                        <div className="text-left text-xs font-medium text-gray-500 uppercase">
+                        <div className="text-left text-xs font-medium text-gray-900 uppercase">
                             Rate
                         </div>
-                        <div className="text-right text-xs font-medium text-gray-500 uppercase">
+                        <div className="text-right text-xs font-medium text-gray-900 uppercase">
                             Amount
                         </div>
                     </div>

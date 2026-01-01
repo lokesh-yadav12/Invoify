@@ -38,31 +38,35 @@ export default function FinalPdf() {
                     variant={"ghost"}
                     size="sm"
                     onClick={removeFinalPdf}
+                    className="text-xs sm:text-sm"
                 >
-                    <MoveLeft className="w-5 h-5" />
-                    Back to Live Preview
+                    <MoveLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Back to Live Preview</span>
+                    <span className="sm:hidden">Back</span>
                 </BaseButton>
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-2 my-1">
+            <div className="flex flex-wrap gap-2 my-1 justify-center sm:justify-start">
                 <BaseButton
                     tooltipLabel="Preview invoice in new tab"
                     onClick={previewPdfInTab}
                     size="sm"
                     variant={"outline"}
+                    className="flex-1 sm:flex-none"
                 >
-                    <Eye className="w-5 h-5" />
-                    Preview
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Preview</span>
                 </BaseButton>
                 <BaseButton
                     tooltipLabel="Download invoice PDF"
                     onClick={downloadPdf}
                     size="sm"
                     variant={"outline"}
+                    className="flex-1 sm:flex-none"
                 >
-                    <DownloadCloudIcon className="w-5 h-5" />
-                    Download
+                    <DownloadCloudIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Download</span>
                 </BaseButton>
 
                 <BaseButton
@@ -70,9 +74,10 @@ export default function FinalPdf() {
                     onClick={printPdf}
                     size="sm"
                     variant={"outline"}
+                    className="flex-1 sm:flex-none"
                 >
-                    <Printer className="w-5 h-5" />
-                    Print
+                    <Printer className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Print</span>
                 </BaseButton>
 
                 <BaseButton
@@ -80,9 +85,10 @@ export default function FinalPdf() {
                     onClick={saveInvoice}
                     size="sm"
                     variant={"outline"}
+                    className="flex-1 sm:flex-none"
                 >
-                    <BookmarkIcon className="w-5 h-5" />
-                    Save
+                    <BookmarkIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Save</span>
                 </BaseButton>
 
                 <SendPdfToEmailModal sendPdfToMail={sendPdfToMail}>
@@ -90,9 +96,10 @@ export default function FinalPdf() {
                         tooltipLabel="Send invoice PDF to mail"
                         size="sm"
                         variant={"outline"}
+                        className="flex-1 sm:flex-none"
                     >
-                        <Mail className="w-5 h-5" />
-                        Send to mail
+                        <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span className="hidden sm:inline">Send to mail</span>
                     </BaseButton>
                 </SendPdfToEmailModal>
             </div>

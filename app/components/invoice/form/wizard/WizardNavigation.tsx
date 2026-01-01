@@ -18,13 +18,14 @@ const WizardNavigation = () => {
 
     const { _t } = useTranslationContext();
     return (
-        <div className="flex justify-end gap-5">
+        <div className="flex flex-wrap justify-end gap-3 sm:gap-5">
             {!isFirstStep && (
                 <BaseButton
                     tooltipLabel="Go back to the previous step"
                     onClick={previousStep}
+                    className="flex-1 sm:flex-none"
                 >
-                    <ArrowLeft />
+                    <ArrowLeft className="h-4 w-4" />
                     {_t("form.wizard.back")}
                 </BaseButton>
             )}
@@ -32,9 +33,10 @@ const WizardNavigation = () => {
                 tooltipLabel="Go to the next step"
                 disabled={isLastStep}
                 onClick={nextStep}
+                className="flex-1 sm:flex-none"
             >
                 {_t("form.wizard.next")}
-                <ArrowRight />
+                <ArrowRight className="h-4 w-4" />
             </BaseButton>
         </div>
     );

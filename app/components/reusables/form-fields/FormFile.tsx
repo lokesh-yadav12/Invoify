@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 
 // RHF
 import { useFormContext, useWatch } from "react-hook-form";
@@ -37,8 +37,20 @@ const FormFile = ({ name, label, placeholder }: FormFileProps) => {
         control,
     });
 
-    const [base64Image, setBase64Image] = useState<string>(logoImage ?? "");
+    // Set default logo if none exists
+    const defaultLogo = "/assets/img/elite8digital.png";
+    const [base64Image, setBase64Image] = useState<string>(logoImage || defaultLogo);
     const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+    // Sync with form value and set default if empty or if it's an old Invoify logo
+    React.useEffect(() => {
+        if (!logoImage || logoImage === "" || logoImage.includes("elite8digital")) {
+            setValue(name, defaultLogo);
+            setBase64Image(defaultLogo);
+        } else {
+            setBase64Image(logoImage);
+        }
+    }, [logoImage, name, setValue, defaultLogo]);
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files![0];
@@ -54,8 +66,9 @@ const FormFile = ({ name, label, placeholder }: FormFileProps) => {
     };
 
     const removeLogo = () => {
-        setBase64Image("");
-        setValue(name, "");
+        const defaultLogo = "/assets/img/elite8digital.png";
+        setBase64Image(defaultLogo);
+        setValue(name, defaultLogo);
 
         if (fileInputRef.current) {
             fileInputRef.current.value = "";
@@ -76,8 +89,8 @@ const FormFile = ({ name, label, placeholder }: FormFileProps) => {
                                 src={base64Image}
                                 style={{
                                     objectFit: "contain",
-                                    width: "10rem",
-                                    height: "7rem",
+                                    width: "6rem",
+                                    height: "5rem",
                                 }}
                             />
                         ) : (
@@ -117,9 +130,9 @@ const FormFile = ({ name, label, placeholder }: FormFileProps) => {
             />
             {base64Image && (
                 <div>
-                    <BaseButton variant="destructive" onClick={removeLogo}>
+                    <BaseButton variant="outline" onClick={removeLogo}>
                         <ImageMinus />
-                        Remove logo
+                        Reset to Default Logo
                     </BaseButton>
                 </div>
             )}

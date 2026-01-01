@@ -103,17 +103,18 @@ const WizardProgress = ({ wizard }: WizardProgressProps) => {
     ];
 
     return (
-        <div className="flex flex-wrap justify-around items-center gap-y-3">
+        <div className="flex flex-wrap justify-center sm:justify-around items-center gap-2 sm:gap-y-3">
             {steps.map((step, idx) => (
                 <div key={step.id} className="flex items-center">
                     <BaseButton
                         variant={returnButtonVariant(step)}
-                        className="w-auto"
+                        className="w-auto text-xs sm:text-sm px-2 sm:px-4"
                         onClick={() => {
                             wizard.goToStep(step.id);
                         }}
                     >
-                        {step.id + 1}. {step.label}
+                        <span className="hidden sm:inline">{step.id + 1}. </span>
+                        {step.label}
                     </BaseButton>
 
                     {/* {step.id != stepCount - 1 && (

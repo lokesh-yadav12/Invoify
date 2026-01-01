@@ -60,10 +60,10 @@ const Charges = () => {
     return (
         <>
             {/* Charges */}
-            <div className="flex flex-col gap-3 min-w-[20rem]">
+            <div className="flex flex-col gap-3 w-full lg:w-auto lg:min-w-[20rem]">
                 {/* Switches */}
-                <div className="flex justify-evenly pb-6">
-                    <div>
+                <div className="flex flex-wrap justify-center sm:justify-evenly gap-4 sm:gap-0 pb-6">
+                    <div className="flex flex-col items-center gap-1">
                         <Label>{_t("form.steps.summary.discount")}</Label>
 
                         <div>
@@ -78,7 +78,7 @@ const Charges = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="flex flex-col items-center gap-1">
                         <Label>{_t("form.steps.summary.tax")}</Label>
 
                         <div>
@@ -93,7 +93,7 @@ const Charges = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="flex flex-col items-center gap-1">
                         <Label>{_t("form.steps.summary.shipping")}</Label>
 
                         <div>

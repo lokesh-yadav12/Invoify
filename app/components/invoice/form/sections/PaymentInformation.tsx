@@ -9,9 +9,9 @@ import { useTranslationContext } from "@/contexts/TranslationContext";
 const PaymentInformation = () => {
     const { _t } = useTranslationContext();
     return (
-        <section>
+        <section className="w-full">
             <Subheading>{_t("form.steps.paymentInfo.heading")}:</Subheading>
-            <div className="flex flex-wrap gap-10 mt-5">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-5 sm:gap-10 mt-5">
                 <FormInput
                     name="details.paymentInformation.bankName"
                     label={_t("form.steps.paymentInfo.bankName")}

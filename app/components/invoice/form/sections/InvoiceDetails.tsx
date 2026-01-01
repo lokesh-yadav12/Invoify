@@ -17,10 +17,10 @@ const InvoiceDetails = () => {
     const { _t } = useTranslationContext();
 
     return (
-        <section className="flex flex-col flex-wrap gap-5">
+        <section className="flex flex-col flex-wrap gap-5 w-full">
             <Subheading>{_t("form.steps.invoiceDetails.heading")}:</Subheading>
 
-            <div className="flex flex-row flex-wrap gap-5">
+            <div className="flex flex-col lg:flex-row flex-wrap gap-5">
                 <div className="flex flex-col gap-2">
                     <FormFile
                         name="details.invoiceLogo"

@@ -43,24 +43,24 @@ const CurrencySelector = ({
     const { currencies, currenciesLoading } = useCurrencies();
 
     return (
-        <div>
+        <div className="w-full">
             <FormField
                 control={control}
                 name={name}
                 render={({ field }) => (
                     <FormItem>
-                        <div className="flex justify-between gap-5 items-center text-sm">
+                        <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-5 items-start sm:items-center text-sm">
                             <div>
                                 <FormLabel>{label}:</FormLabel>
                             </div>
-                            <div>
+                            <div className="w-full sm:w-auto">
                                 <Select
                                     {...field}
                                     defaultValue={field.value}
                                     onValueChange={field.onChange}
                                 >
                                     <FormControl>
-                                        <SelectTrigger className="w-[13rem]">
+                                        <SelectTrigger className="w-full sm:w-[13rem]">
                                             <SelectValue
                                                 placeholder={placeholder}
                                             />
